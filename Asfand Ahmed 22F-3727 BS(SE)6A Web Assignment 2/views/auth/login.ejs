@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Course Registration</title>
+  <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+  <div class="login-container">
+    <h1>Login</h1>
+    <form id="login-form" action="/auth/login" method="POST">
+      <label for="user-type">Select Role:</label>
+      <select id="user-type" name="userType">
+        <option value="student">Student</option>
+        <option value="admin">Admin</option>
+      </select>
+
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" placeholder="Enter Username/Roll Number" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Enter Password" required>
+
+      <button type="submit">Log In</button>
+      <% if (typeof message !== 'undefined' && message) { %>
+        <p id="error-msg" class="error-msg"><%= message %></p>
+      <% } %>
+    </form>
+  </div>
+  <script src="/js/auth.js"></script>
+</body>
+</html>

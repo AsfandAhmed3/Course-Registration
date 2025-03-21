@@ -1,0 +1,164 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f4f4f4;
+}
+
+header {
+  background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+header .logo img {
+  height: 50px;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 10px 0 0;
+}
+
+header nav ul li {
+  margin: 0 15px;
+}
+
+header nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+  color: #ddd;
+}
+
+main {
+  padding: 20px;
+}
+
+section {
+  margin-bottom: 40px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#calendar-section table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+#calendar-section th,
+#calendar-section td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+
+#calendar-section th {
+  background-color: #f7f7f7;
+}
+
+td.scheduled {
+  background-color: #e6ffe6;
+  font-weight: bold;
+}
+
+#filter-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 15px;
+}
+
+#filter-form .form-group {
+  margin: 10px;
+  flex: 1 1 200px;
+}
+
+#filter-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+#filter-form input,
+#filter-form select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+#filter-form button {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 1rem;
+  margin: 10px auto;
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+#filter-form button:hover {
+  opacity: 0.9;
+}
+
+#filter-results {
+  margin-top: 20px;
+}
+
+#timetable {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: #fafafa;
+}
+
+#prerequisites {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: #fafafa;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #333;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  header nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #filter-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

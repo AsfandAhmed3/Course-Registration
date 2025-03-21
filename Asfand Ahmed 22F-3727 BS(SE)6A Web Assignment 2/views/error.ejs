@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Error</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .error-container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+    .error-container h1 {
+      color: #b21f1f;
+      margin-bottom: 20px;
+    }
+    .error-container p {
+      font-size: 1.1em;
+      color: #333;
+    }
+    .error-container pre {
+      text-align: left;
+      background: #f4f4f4;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+      font-size: 0.9em;
+      color: #555;
+    }
+    .error-container a {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+    .error-container a:hover {
+      background: #b21f1f;
+    }
+  </style>
+</head>
+<body>
+  <div class="error-container">
+    <h1>Oops! Something went wrong.</h1>
+    <p><%= message %></p>
+    <% if (typeof error !== 'undefined' && error && error.stack) { %>
+      <pre><%= error.stack %></pre>
+    <% } %>
+    <a href="/">Return Home</a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - Course Registration</title>
+  <link rel="stylesheet" href="/css/admin.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" />
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="/images/university logo.png" alt="University Logo">
+    </div>
+    <h1>Admin Dashboard</h1>
+    <nav>
+      <ul>
+        <li><a href="#" data-tab="course-management">Course Management</a></li>
+        <li><a href="#" data-tab="student-management">Student Management</a></li>
+        <li><a href="#" data-tab="seat-management">Seat Management</a></li>
+        <li><a href="#" data-tab="reports">Reports</a></li>
+        <li><a href="/auth/logout">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <main>
+    <section id="course-management" class="tab-content">
+      <h2>Course Management</h2>
+      <form id="course-form" action="/admin/courses" method="POST">
+        <input type="text" id="course-name" name="courseName" placeholder="Course Name" required>
+        <input type="text" id="course-code" name="courseCode" placeholder="Course Code" required>
+        <input type="number" id="course-seats" name="seatsAvailable" placeholder="Seats Available" required>
+        <input type="text" id="course-prerequisites" name="prerequisites" placeholder="Prerequisites (comma separated)">
+     
+        <label for="department">Department:</label>
+        <select id="department" name="department" required>
+          <option value="">Select Department</option>
+          <option value="CS">Computer Science</option>
+          <option value="EE">Electrical Engineering</option>
+          <option value="ME">Mechanical Engineering</option>
+        </select>
+    
+        <label for="course-level">Course Level:</label>
+        <select id="course-level" name="courseLevel" required>
+          <option value="">Select Course Level</option>
+          <option value="100">100</option>
+          <option value="200">200</option>
+          <option value="300">300</option>
+          <option value="400">400</option>
+        </select>
+    
+        <fieldset>
+          <legend>Schedule</legend>
+          <label for="schedule-day">Day:</label>
+          <select id="schedule-day" name="scheduleDay" required>
+            <option value="">Select Day</option>
+            <option value="Monday">Monday</option>
+            <option value="Tuesday">Tuesday</option>
+            <option value="Wednesday">Wednesday</option>
+            <option value="Thursday">Thursday</option>
+            <option value="Friday">Friday</option>
+          </select>
+          <label for="start-time">Start Time (HH:MM):</label>
+          <input type="text" id="start-time" name="startTime" placeholder="09:00" required>
+          <label for="end-time">End Time (HH:MM):</label>
+          <input type="text" id="end-time" name="endTime" placeholder="10:30" required>
+        </fieldset>
+        
+        <button type="submit">Add / Update Course</button>
+      </form>
+      <p id="course-msg"></p>
+  
+      <h3>Delete a Course</h3>
+      <form id="delete-course-form">
+        <input type="text" id="delete-course-code" placeholder="Enter Course Code" required>
+        <button type="submit">Delete Course</button>
+      </form>
+      <p id="delete-course-msg"></p>
+      
+      <div id="course-list">
+      </div>
+    </section>
+    
+<section id="student-management" class="tab-content" style="display: none;">
+  <h2>Student Management</h2>
+  <div id="student-list">
+    <p>Loading student registrations...</p>
+  </div>
+  <form id="override-form" action="/admin/students/override" method="POST">
+    <input type="text" id="student-roll" name="studentRoll" placeholder="Student Roll Number" required>
+    <input type="text" id="override-course" name="courseCode" placeholder="Course Code" required>
+    <button type="submit">Override Registration</button>
+  </form>
+</section>
+
+<section id="seat-management" class="tab-content" style="display: none;">
+  <h2>Seat Management</h2>
+  <form id="seat-form">
+    <input type="text" id="seat-course-code" name="courseCode" placeholder="Course Code" required>
+    <input type="number" id="new-seats" name="newSeatCount" placeholder="New Seat Count" required>
+    <button type="submit">Update Seats</button>
+  </form>
+  <p id="seat-msg"></p>
+</section>
+
+    <section id="reports" class="tab-content" style="display: none;">
+      <h2>Reports</h2>
+      <button id="report-students-course">Students Registered for a Course</button>
+      <button id="report-available-courses">Courses with Available Seats</button>
+      <button id="report-missing-prereq">Students Missing Prerequisites</button>
+      <div id="report-results">
+      </div>
+    </section>
+  </main>
+  
+  <script src="/js/admin/dashboard.js"></script>
+</body>
+</html>
